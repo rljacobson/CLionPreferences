@@ -1,0 +1,29 @@
+<application>
+  <component name="CodeFoldingSettings">
+    <option name="COLLAPSE_IMPORTS" value="false" />
+    <option name="COLLAPSE_FILE_HEADER" value="false" />
+  </component>
+  <component name="CodeInsightSettings">
+    <option name="SURROUND_SELECTION_ON_QUOTE_TYPED" value="true" />
+    <option name="INDENT_TO_CARET_ON_PASTE" value="true" />
+  </component>
+  <component name="MarkdownFoldingSettings">
+    <option name="COLLAPSE_IMAGES" value="false" />
+    <option name="COLLAPSE_EMBEDDED_IMAGES" value="false" />
+    <option name="COLLAPSE_SIM_TOC" value="false" />
+  </component>
+  <component name="OCCodeFoldingSettings">
+    <option name="collapseConditionallyNotCompiled" value="false" />
+    <option name="collapseTemplateParamList" value="false" />
+    <option name="COLLAPSE_TEMPLATE_PARAM_LIST" value="false" />
+    <option name="COLLAPSE_CONDITIONALLY_NOT_COMPILED" value="false" />
+  </component>
+  <component name="RsCodeFoldingSettings">
+    <option name="collapsibleOneLineMethods" value="false" />
+  </component>
+  <component name="XmlFoldingSettings">
+    <option name="COLLAPSE_HTML_STYLE_ATTRIBUTE" value="false" />
+    <option name="COLLAPSE_ENTITIES" value="false" />
+    <option name="COLLAPSE_DATA_URI" value="false" />
+  </component>
+</application>

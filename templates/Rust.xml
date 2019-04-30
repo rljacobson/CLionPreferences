@@ -1,0 +1,119 @@
+<templateSet group="Rust">
+  <template name="loop" value="loop {&#10;    $END$&#10;}" description="infinite loop" toReformat="true" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="while" value="while $CONDITION$ {&#10;    $END$&#10;}" description="while loop" toReformat="true" toShortenFQNames="true">
+    <variable name="CONDITION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="whilel" value="while let $PATTERN$ = $EXPRESSION$ {&#10;    $END$&#10;}" description="while let ... loop" toReformat="true" toShortenFQNames="true">
+    <variable name="EXPRESSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PATTERN" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="whilels" value="while let Some($VAR$) = $ITERABLE$ {&#10;    $END$&#10;}" description="while let Some(...) loop" toReformat="true" toShortenFQNames="true">
+    <variable name="ITERABLE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VAR" expression="rustCollectionElementName(ITERABLE)" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="for" value="for $VAR$ in $ITERABLE$ {&#10;    $END$&#10;}" description="iterate (for ... in ...)" toReformat="true" toShortenFQNames="true">
+    <variable name="ITERABLE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VAR" expression="rustCollectionElementName(ITERABLE)" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="fori" value="for $INDEX$ in $START$..$STOP$ {&#10;    $END$&#10;}" description="iterate over range (for ... in range)" toReformat="true" toShortenFQNames="true">
+    <variable name="START" expression="" defaultValue="&quot;0&quot;" alwaysStopAt="true" />
+    <variable name="STOP" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="INDEX" expression="rustSuggestIndexName()" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="p" value="println!(&quot;$END$&quot;);" description="println!" toReformat="true" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="pr" value="print!(&quot;$END$&quot;);" description="print!" toReformat="true" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="pd" value="eprintln!(&quot;$EXPRESSION_COPY$ = {:?}&quot;, $EXPRESSION$);" description="debug eprintln! value" toReformat="true" toShortenFQNames="true">
+    <variable name="EXPRESSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="EXPRESSION_COPY" expression="EXPRESSION" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="ppd" value="eprintln!(&quot;$EXPRESSION_COPY$ = {:#?}&quot;, $EXPRESSION$);" description="debug pretty eprintln! value" toReformat="true" toShortenFQNames="true">
+    <variable name="EXPRESSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="EXPRESSION_COPY" expression="EXPRESSION" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="fmt" value="format!(&quot;$END$&quot;);" description="format!" toReformat="true" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="wrt" value="write!($BUFFER$, &quot;$END$&quot;);" description="write! to buffer" toReformat="true" toShortenFQNames="true">
+    <variable name="BUFFER" expression="" defaultValue="&quot;buffer&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="wrtn" value="writeln!($BUFFER$, &quot;$END$&quot;);" description="writeln! to buffer" toReformat="true" toShortenFQNames="true">
+    <variable name="BUFFER" expression="" defaultValue="&quot;buffer&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="a" value="assert!($END$);" description="assert" toReformat="true" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="ae" value="assert_eq!($LEFT$, $RIGHT$);" description="assert equals" toReformat="true" toShortenFQNames="true">
+    <variable name="LEFT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="RIGHT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="tfn" value="#[test]&#10;fn $NAME$() {&#10;    $END$&#10;}" description="test function" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="bfn" value="#[bench]&#10;fn $NAME$(b: &amp;mut test::Bencher) {&#10;    b.iter(||);$END$&#10;}" description="bench function" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="tmod" value="#[cfg(test)]&#10;mod tests {&#10;    use super::*;&#10;    &#10;    $END$&#10;}" description="test module" toReformat="false" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="f" value="$IDENT$: $TYPE$," description="field" toReformat="true" toShortenFQNames="true">
+    <variable name="IDENT" expression="" defaultValue="&quot;foo&quot;" alwaysStopAt="true" />
+    <variable name="TYPE" expression="" defaultValue="&quot;u32&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="pf" value="pub $IDENT$: $TYPE$," description="pub field" toReformat="true" toShortenFQNames="true">
+    <variable name="IDENT" expression="" defaultValue="&quot;foo&quot;" alwaysStopAt="true" />
+    <variable name="TYPE" expression="" defaultValue="&quot;u32&quot;" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="main" value="fn main() {&#10;    $END$&#10;}" description="main() function declaration" toReformat="true" toShortenFQNames="true">
+    <context />
+  </template>
+  <template name="macro" value="macro_rules! $NAME$ {&#10;    ($MATCHER$) =&gt; {$TRANSCRIBER$};$END$&#10;}" description="macro_rules! declaration" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MATCHER" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TRANSCRIBER" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="ifl" value="if let $PATTERN$ = $EXPRESSION$ {&#10;    $END$&#10;}" description="if let ... statement" toReformat="true" toShortenFQNames="true">
+    <variable name="EXPRESSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PATTERN" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="ifls" value="if let Some($VAR$) = $EXPRESSION$ {&#10;    $END$&#10;}" description="if let Some(...) statement" toReformat="true" toShortenFQNames="true">
+    <variable name="EXPRESSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VAR" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="closure" value="|$PARAM$| $PARAM_COPY$" description="closure" toReformat="true" toShortenFQNames="true">
+    <variable name="PARAM" expression="" defaultValue="&quot;x&quot;" alwaysStopAt="true" />
+    <variable name="PARAM_COPY" expression="PARAM" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="impl" value="impl $NAME$ {&#10;    $END$&#10;}" description="impl Foo {} declaration" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+  <template name="implt" value="impl $NAME$ for $TRAIT_NAME$ {&#10;    $END$&#10;}" description="impl Foo for Bar {} declaration" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TRAIT_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context />
+  </template>
+</templateSet>

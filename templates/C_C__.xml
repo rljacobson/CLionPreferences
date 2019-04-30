@@ -1,0 +1,101 @@
+<templateSet group="C/C++">
+  <template name="nspace" value="namespace $name_of_space${&#10;&#10;$END$$SELECTION$&#10;&#10;}" description="Surround with namespace" toReformat="true" toShortenFQNames="true">
+    <variable name="name_of_space" expression="${PROJECT_NAME}" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="cout" value="std::cout &lt;&lt; $SELECTION$$END$ &lt;&lt; '\n';" description="creates std::cout boilerplate." toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OC_STATEMENT_CPP" value="true" />
+    </context>
+  </template>
+  <template name="cin" value="std::cin &gt;&gt; $SELECTION$$END$;" description="creates std::cin boilerplate." toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OC_STATEMENT_CPP" value="true" />
+    </context>
+  </template>
+  <template name="fmt" value="format($SELECTION$, $END$)" description="Format using fmt library" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OC_EXPRESSION_CPP" value="true" />
+      <option name="OC_STATEMENT_CPP" value="true" />
+    </context>
+  </template>
+  <template name="inc" value="#include &quot;$END$.h&quot;" description="Include boilerplate for project headers" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="c" value="true" />
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="incl" value="#include &lt;$END$&gt;" description="Include boilerplate for system headers" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="c" value="true" />
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="class" value="class $END$ {&#10;public:&#10;    &#10;    &#10;private:&#10;    &#10;};" description="new class" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OC_EXPRESSION_CPP" value="false" />
+      <option name="OC_STATEMENT_CPP" value="false" />
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="ctor" value="$CLASSNAME$($END$);" description="class constructor" toReformat="false" toShortenFQNames="true">
+    <variable name="CLASSNAME" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OC_EXPRESSION_CPP" value="false" />
+      <option name="OC_STATEMENT_CPP" value="false" />
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="dtor" value="~$CLASSNAME$($END$);" description="class destructor" toReformat="true" toShortenFQNames="true">
+    <variable name="CLASSNAME" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OC_EXPRESSION_CPP" value="false" />
+      <option name="OC_STATEMENT_CPP" value="false" />
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="nocopy" value="private:&#10;    // Prevents default copy and assignment constructors.&#10;    $CLASSNAME$(const $CLASSNAME$ &amp;);&#10;    $CLASSNAME$&amp; operator=(const $CLASSNAME$ &amp;);&#10;    $END$" description="Prevents default copy and assignment constructors" toReformat="true" toShortenFQNames="true">
+    <variable name="CLASSNAME" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OC_DECLARATION_CPP" value="true" />
+    </context>
+  </template>
+  <template name="fn" value="[[nodiscard]] const $SELECTION$$END$() const [[nothrow]]" description="Strictest function definition" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OC_DECLARATION_CPP" value="true" />
+    </context>
+  </template>
+  <template name="mv" value="std::move&lt;$TYPE$&gt;($SELECTION$)" description="std::move an object" toReformat="false" toShortenFQNames="true">
+    <variable name="TYPE" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OC_EXPRESSION_CPP" value="true" />
+      <option name="OC_STATEMENT_CPP" value="true" />
+    </context>
+  </template>
+  <template name="cctor" value="$CLASSNAME$(const $CLASSNAME$ &amp; $NAME$){$END$}" description="class copy constructor" toReformat="true" toShortenFQNames="true">
+    <variable name="CLASSNAME" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="suggestVariableName()" defaultValue="other" alwaysStopAt="true" />
+    <context>
+      <option name="OC_EXPRESSION_CPP" value="false" />
+      <option name="OC_STATEMENT_CPP" value="false" />
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="actor" value="$CLASSNAME$&amp; operator=(const $CLASSNAME$ &amp;$NAME$){$END$}" description="class assignment constructor" toReformat="true" toShortenFQNames="true">
+    <variable name="CLASSNAME" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="suggestVariableName()" defaultValue="other" alwaysStopAt="true" />
+    <context>
+      <option name="OC_EXPRESSION_CPP" value="false" />
+      <option name="OC_STATEMENT_CPP" value="false" />
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="try" value="try{&#10;    $SELECTION$&#10;} catch($EXCEPTION$$END$){&#10;&#10;}" description="try-catch clause" toReformat="true" toShortenFQNames="true">
+    <variable name="EXCEPTION" expression="suggestVariableName()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OC_STATEMENT_CPP" value="true" />
+    </context>
+  </template>
+</templateSet>
