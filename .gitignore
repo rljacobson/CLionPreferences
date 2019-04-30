@@ -1,0 +1,13 @@
+# First, ignore everything
+*
+# Now, whitelist anything that's a directory
+#!*/
+# ...or only specific directories.
+!templates/*.xml
+!codestyles/*.xml
+# And all the files/file types you're interested in.
+!editor.codeinsight.xml
+!editor.xml
+!projectView.xml
+!.gitignore
+!README.md
