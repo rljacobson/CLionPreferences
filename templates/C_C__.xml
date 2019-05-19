@@ -21,13 +21,13 @@
       <option name="OC_STATEMENT_CPP" value="true" />
     </context>
   </template>
-  <template name="inc" value="#include &quot;$END$.h&quot;" description="Include boilerplate for project headers" toReformat="false" toShortenFQNames="true">
+  <template name="inc" value="#include &quot;$END$.hpp&quot;" description="Include boilerplate for project headers" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="c" value="true" />
       <option name="cpp" value="true" />
     </context>
   </template>
-  <template name="incl" value="#include &lt;$END$&gt;" description="Include boilerplate for system headers" toReformat="false" toShortenFQNames="true">
+  <template name="incl" value="#include &lt;$END$&gt;" description="Include boilerplate for system headers" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="c" value="true" />
       <option name="cpp" value="true" />
@@ -62,7 +62,7 @@
       <option name="OC_DECLARATION_CPP" value="true" />
     </context>
   </template>
-  <template name="fn" value="[[nodiscard]] const $SELECTION$$END$() const [[nothrow]]" description="Strictest function definition" toReformat="false" toShortenFQNames="true">
+  <template name="fn" value="[[nodiscard]] const $SELECTION$$END$() const [[nothrow]]" description="Strictest function definition" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="OC_DECLARATION_CPP" value="true" />
     </context>
